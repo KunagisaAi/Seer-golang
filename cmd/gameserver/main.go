@@ -360,6 +360,55 @@ func main() {
 
 	logger.Info("所有服务器已启动")
 
+	// === 单端口 cmux（手机核心改动）===
+    singlePort := ":5000" // ← 手机只监听这一个端口！客户端也要改成这个端口
+    ln, err := net.Listen("tcp", singlePort)
+    if err != nil {
+        logger.Error(fmt.Sprintf("单端口监听失败: %v", err))
+        os.Exit(1)
+    }
+
+    mux := cmux.New(ln)
+
+    // 1. HTTP 请求 → 资源服务器
+    httpL := mux.Match(cmux.HTTP())
+
+    // 2. 自定义 matcher → 登录服务器（后面有模板）
+    loginL := mux.Match(loginMatcher)
+
+    // 3. 剩余所有自定义 TCP → 游戏服务器
+    gameL := mux.Match(cmux.Any())
+
+    // 启动三个服务（使用新方法）
+    go func() {
+        if err := resServer.StartWithListener(httpL); err != nil {
+            logger.Error(fmt.Sprintf("资源服务器启动失败: %v", err))
+        }
+    }()
+    if err := loginServer.StartWithListener(loginL); err != nil {
+        logger.Error(fmt.Sprintf("登录服务器启动失败: %v", err))
+    }
+    if err := gs.StartWithListener(gameL); err != nil {
+        logger.Error(fmt.Sprintf("游戏服务器启动失败: %v", err))
+    }
+
+    // GM 面板保留（8080），如果手机也只能开一个端口，再告诉我我帮你合并到 cmux HTTP
+    go func() {
+        // 你原来的 GM 启动代码不变
+        gmServer := &http.Server{Addr: ":8080", Handler: gmMux}
+        logger.Info("GM管理面板启动在端口 8080")
+        if err := gmServer.ListenAndServe(); err != nil {
+            logger.Error(fmt.Sprintf("GM管理服务器启动失败: %v", err))
+        }
+    }()
+
+    logger.Info("所有服务器已启动（单端口 5000 + cmux）")
+
+    // 启动 cmux（阻塞在这里）
+    if err := mux.Serve(); err != nil {
+        logger.Error(fmt.Sprintf("cmux Serve 失败: %v", err))
+    }
+
 	// 等待中断信号
 	sigChan := make(chan os.Signal, 1)
 	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM)
@@ -395,6 +444,45 @@ func main() {
 	}
 
 	logger.Info("服务器已关闭")
+}
+
+import (
+    "encoding/binary"
+    "net"
+    "strings"
+    "time"
+    // ... 其他 import
+)
+
+// loginMatcher 根据第一个包判断是登录协议还是游戏协议
+// 你运行一次客户端，看登录服务器的 "数据包前20字节: %x" 日志，调整下面的条件即可
+func loginMatcher(c net.Conn) bool {
+    c.SetReadDeadline(time.Now().Add(150 * time.Millisecond))
+    defer c.SetReadDeadline(time.Time{})
+
+    buf := make([]byte, 32)
+    n, err := c.Read(buf)
+    if err != nil || n == 0 {
+        return false
+    }
+    data := buf[:n]
+
+    // 情况1：Flash policy 请求（大多数登录客户端先发这个）
+    if strings.Contains(string(data), "policy-file-request") {
+        return true // 改成 false 也可以，根据你实际测试
+    }
+
+    // 情况2：根据 cmdId（游戏 cmd 通常较大，登录较小）
+    if n > 20 {
+        length := binary.BigEndian.Uint32(data[0:4])
+        if length > 0 && length < 2000 { // 防止异常包
+            cmd := binary.BigEndian.Uint32(data[5:9]) // 游戏服务器里 cmd 在 offset 5
+            if cmd < 1500 { // ← 这里是关键！运行一次看登录的 cmd 是多少，改这个阈值
+                return true
+            }
+        }
+    }
+    return false
 }
 
 // confirmDisclaimerInConsole 在启动服务端前于控制台展示免责申明，并要求用户确认

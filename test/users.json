@@ -92,6 +92,37 @@
       "roleCreated": true,
       "session": "�u\nHi'Ntv�E1�zV�",
       "sessionHex": "97750a4869274e7476e64531c17a56d6"
+    },
+    "100000010": {
+      "userId": 100000010,
+      "email": "214514@a.com",
+      "password": "c4d038b4bed09fdb1471ef51ec3a32cd",
+      "nickname": "1",
+      "color": 0,
+      "registerTime": 1773665790,
+      "roleCreated": true,
+      "session": "0�\u001f�\u001e��y7d�U\u001d\u0012�N",
+      "sessionHex": "30f91fc41ed6de793764b1551d12874e"
+    },
+    "100000011": {
+      "userId": 100000011,
+      "email": "114514@a.com",
+      "password": "c4d038b4bed09fdb1471ef51ec3a32cd",
+      "nickname": "2",
+      "color": 0,
+      "registerTime": 1773665919,
+      "roleCreated": true,
+      "session": "\ufffd\ufffd\ufffd\ufffdX\ufffd\ufffd.\u0000\ufffdZ\ufffd\ufffd\ufffd9l",
+      "sessionHex": "8bb9e2b358cfeb2e00ba5a8ab7b4396c"
+    },
+    "100000012": {
+      "userId": 100000012,
+      "email": "user539977313@example.com",
+      "password": "123456",
+      "nickname": "100000012",
+      "color": 0,
+      "registerTime": 1773666360,
+      "roleCreated": false
     }
   },
   "gameData": {
@@ -416,7 +447,7 @@
           "dv": 28,
           "nature": 14,
           "exp": 0,
-          "name": "依依",
+          "name": "依卡莱恩",
           "ev_hp": 0,
           "ev_attack": 0,
           "ev_defence": 0,
@@ -510,7 +541,7 @@
           "dv": 0,
           "nature": 0,
           "exp": 0,
-          "name": "熔火灵猴",
+          "name": "魔焰猩猩",
           "ev_hp": 0,
           "ev_attack": 0,
           "ev_defence": 0,
@@ -1529,14 +1560,14 @@
           "dv": 0,
           "nature": 0,
           "exp": 0,
-          "name": "",
+          "name": "胡里亚",
           "ev_hp": 0,
           "ev_attack": 0,
           "ev_defence": 0,
           "ev_sa": 0,
           "ev_sd": 0,
           "ev_sp": 0,
-          "skills": null,
+          "skills": [],
           "trait": 1030
         },
         {
@@ -1546,14 +1577,14 @@
           "dv": 0,
           "nature": 0,
           "exp": 0,
-          "name": "",
+          "name": "黑火贝",
           "ev_hp": 0,
           "ev_attack": 0,
           "ev_defence": 0,
           "ev_sa": 0,
           "ev_sd": 0,
           "ev_sp": 0,
-          "skills": null,
+          "skills": [],
           "trait": 1034
         },
         {
@@ -1563,14 +1594,14 @@
           "dv": 0,
           "nature": 0,
           "exp": 0,
-          "name": "",
+          "name": "鱼龙王",
           "ev_hp": 0,
           "ev_attack": 0,
           "ev_defence": 0,
           "ev_sa": 0,
           "ev_sd": 0,
           "ev_sp": 0,
-          "skills": null,
+          "skills": [],
           "trait": 1041
         },
         {
@@ -1580,14 +1611,14 @@
           "dv": 0,
           "nature": 0,
           "exp": 0,
-          "name": "",
+          "name": "鱼龙王",
           "ev_hp": 0,
           "ev_attack": 0,
           "ev_defence": 0,
           "ev_sa": 0,
           "ev_sd": 0,
           "ev_sp": 0,
-          "skills": null,
+          "skills": [],
           "trait": 1041
         }
       ],
@@ -3495,6 +3526,322 @@
         0
       ]
     },
+    "100000010": {
+      "nick": "1",
+      "color": 0,
+      "coins": 2000,
+      "gold": 9999,
+      "energy": 100,
+      "pets": [],
+      "items": {
+        "300001": {
+          "count": 5,
+          "expireTime": 360000
+        },
+        "300011": {
+          "count": 3,
+          "expireTime": 360000
+        }
+      },
+      "clothes": [],
+      "tasks": {},
+      "petBook": {},
+      "nono": {
+        "hasNono": 1,
+        "flag": 1,
+        "state": 0,
+        "nick": "NoNo",
+        "color": 16777215,
+        "superNono": 0,
+        "vipLevel": 0,
+        "vipStage": 0,
+        "vipValue": 0,
+        "autoCharge": 0,
+        "vipEndTime": 0,
+        "freshManBonus": 0,
+        "superEnergy": 0,
+        "superLevel": 0,
+        "superStage": 0,
+        "power": 10000,
+        "mate": 10000,
+        "iq": 0,
+        "ai": 0,
+        "hp": 10000,
+        "maxHp": 10000,
+        "energy": 100,
+        "birth": 1773665813,
+        "chargeTime": 500,
+        "expire": 0,
+        "chip": 0,
+        "grow": 0,
+        "isFollowing": false
+      },
+      "mapId": 1,
+      "posX": 300,
+      "posY": 270,
+      "fitments": [],
+      "allFitments": [],
+      "texture": 1,
+      "dsFlag": 0,
+      "badge": 0,
+      "curTitle": 0,
+      "fightBadge": 0,
+      "timeToday": 0,
+      "timeLimit": 86400,
+      "loginCnt": 1,
+      "inviter": 0,
+      "newInviteeCnt": 0,
+      "teacherID": 0,
+      "studentID": 0,
+      "graduationCount": 0,
+      "maxPuniLv": 0,
+      "petMaxLev": 100,
+      "petAllNum": 0,
+      "monKingWin": 0,
+      "monBtlMedal": 0,
+      "messWin": 0,
+      "curStage": 0,
+      "maxStage": 0,
+      "towerBossIndex": 0,
+      "curFreshStage": 0,
+      "maxFreshStage": 0,
+      "maxArenaWins": 0,
+      "twoTimes": 0,
+      "threeTimes": 0,
+      "autoFight": 0,
+      "autoFightTimes": 0,
+      "energyTimes": 0,
+      "learnTimes": 0,
+      "achievements": {
+        "total": 0,
+        "rank": 0,
+        "list": []
+      },
+      "storagePets": [],
+      "friends": [],
+      "expPool": 0,
+      "blacklist": [],
+      "currentServer": 0,
+      "lastOnline": 1773665813,
+      "leiyiToday": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "leiyiCurrent": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "leiyiTotal": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "100000011": {
+      "nick": "2",
+      "color": 0,
+      "coins": 52000,
+      "gold": 9999,
+      "energy": 100,
+      "pets": [
+        {
+          "id": 1,
+          "catchTime": 1768449793,
+          "level": 5,
+          "dv": 16,
+          "nature": 2,
+          "exp": 0,
+          "name": "",
+          "ev_hp": 0,
+          "ev_attack": 0,
+          "ev_defence": 0,
+          "ev_sa": 0,
+          "ev_sd": 0,
+          "ev_sp": 0,
+          "skills": null,
+          "trait": 0
+        }
+      ],
+      "items": {
+        "100027": {
+          "count": 1,
+          "expireTime": 360000
+        },
+        "100028": {
+          "count": 1,
+          "expireTime": 360000
+        },
+        "300001": {
+          "count": 10,
+          "expireTime": 360000
+        },
+        "300011": {
+          "count": 6,
+          "expireTime": 360000
+        },
+        "300025": {
+          "count": 3,
+          "expireTime": 360000
+        },
+        "300035": {
+          "count": 3,
+          "expireTime": 360000
+        },
+        "300650": {
+          "count": 3,
+          "expireTime": 360000
+        },
+        "500001": {
+          "count": 1,
+          "expireTime": 360000
+        },
+        "500502": {
+          "count": 1,
+          "expireTime": 360000
+        },
+        "500503": {
+          "count": 1,
+          "expireTime": 360000
+        }
+      },
+      "clothes": [
+        100028,
+        100027
+      ],
+      "tasks": {
+        "10": {
+          "status": "3"
+        },
+        "123": {
+          "status": "1"
+        },
+        "85": {
+          "status": "3"
+        },
+        "86": {
+          "status": "3"
+        },
+        "87": {
+          "status": "3"
+        },
+        "88": {
+          "status": "3"
+        }
+      },
+      "petBook": {},
+      "nono": {
+        "hasNono": 1,
+        "flag": 1,
+        "state": 1,
+        "nick": "NoNo",
+        "color": 16777215,
+        "superNono": 0,
+        "vipLevel": 0,
+        "vipStage": 0,
+        "vipValue": 0,
+        "autoCharge": 0,
+        "vipEndTime": 0,
+        "freshManBonus": 0,
+        "superEnergy": 1000,
+        "superLevel": 0,
+        "superStage": 0,
+        "power": 10000,
+        "mate": 10000,
+        "iq": 0,
+        "ai": 0,
+        "hp": 10000,
+        "maxHp": 10000,
+        "energy": 100,
+        "birth": 1773665937,
+        "chargeTime": 500,
+        "expire": 0,
+        "chip": 0,
+        "grow": 0,
+        "isFollowing": false
+      },
+      "mapId": 1,
+      "posX": 292,
+      "posY": 408,
+      "fitments": [],
+      "allFitments": [],
+      "texture": 1,
+      "dsFlag": 0,
+      "badge": 0,
+      "curTitle": 0,
+      "fightBadge": 0,
+      "timeToday": 0,
+      "timeLimit": 86400,
+      "loginCnt": 1,
+      "inviter": 0,
+      "newInviteeCnt": 0,
+      "teacherID": 0,
+      "studentID": 0,
+      "graduationCount": 0,
+      "maxPuniLv": 0,
+      "petMaxLev": 100,
+      "petAllNum": 0,
+      "monKingWin": 0,
+      "monBtlMedal": 0,
+      "messWin": 0,
+      "curStage": 0,
+      "maxStage": 0,
+      "towerBossIndex": 0,
+      "curFreshStage": 0,
+      "maxFreshStage": 0,
+      "maxArenaWins": 1,
+      "twoTimes": 0,
+      "threeTimes": 0,
+      "autoFight": 0,
+      "autoFightTimes": 0,
+      "energyTimes": 0,
+      "learnTimes": 0,
+      "achievements": {
+        "total": 0,
+        "rank": 0,
+        "list": []
+      },
+      "storagePets": [],
+      "friends": [],
+      "expPool": 252000,
+      "blacklist": [],
+      "currentServer": 0,
+      "lastOnline": 1773666121,
+      "leiyiToday": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "leiyiCurrent": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "leiyiTotal": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
     "539959368": {
       "nick": "539959368",
       "color": 6737151,
@@ -3592,6 +3939,128 @@
       "blacklist": [],
       "currentServer": 0,
       "lastOnline": 1769769724,
+      "leiyiToday": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "leiyiCurrent": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "leiyiTotal": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "539977313": {
+      "nick": "539977313",
+      "color": 6737151,
+      "coins": 2000,
+      "gold": 9999,
+      "energy": 100,
+      "pets": [],
+      "items": {
+        "300001": {
+          "count": 5,
+          "expireTime": 360000
+        },
+        "300011": {
+          "count": 3,
+          "expireTime": 360000
+        }
+      },
+      "clothes": [],
+      "tasks": {},
+      "petBook": {},
+      "nono": {
+        "hasNono": 1,
+        "flag": 1,
+        "state": 0,
+        "nick": "NoNo",
+        "color": 16777215,
+        "superNono": 0,
+        "vipLevel": 0,
+        "vipStage": 0,
+        "vipValue": 0,
+        "autoCharge": 0,
+        "vipEndTime": 0,
+        "freshManBonus": 0,
+        "superEnergy": 0,
+        "superLevel": 0,
+        "superStage": 0,
+        "power": 10000,
+        "mate": 10000,
+        "iq": 0,
+        "ai": 0,
+        "hp": 10000,
+        "maxHp": 10000,
+        "energy": 100,
+        "birth": 1773666360,
+        "chargeTime": 500,
+        "expire": 0,
+        "chip": 0,
+        "grow": 0,
+        "isFollowing": false
+      },
+      "mapId": 1,
+      "posX": 300,
+      "posY": 270,
+      "fitments": [],
+      "allFitments": [],
+      "texture": 1,
+      "dsFlag": 0,
+      "badge": 0,
+      "curTitle": 0,
+      "fightBadge": 0,
+      "timeToday": 0,
+      "timeLimit": 86400,
+      "loginCnt": 1,
+      "inviter": 0,
+      "newInviteeCnt": 0,
+      "teacherID": 0,
+      "studentID": 0,
+      "graduationCount": 0,
+      "maxPuniLv": 0,
+      "petMaxLev": 100,
+      "petAllNum": 0,
+      "monKingWin": 0,
+      "monBtlMedal": 0,
+      "messWin": 0,
+      "curStage": 0,
+      "maxStage": 0,
+      "towerBossIndex": 0,
+      "curFreshStage": 0,
+      "maxFreshStage": 0,
+      "maxArenaWins": 0,
+      "twoTimes": 0,
+      "threeTimes": 0,
+      "autoFight": 0,
+      "autoFightTimes": 0,
+      "energyTimes": 0,
+      "learnTimes": 0,
+      "achievements": {
+        "total": 0,
+        "rank": 0,
+        "list": []
+      },
+      "storagePets": [],
+      "friends": [],
+      "expPool": 0,
+      "blacklist": [],
+      "currentServer": 0,
+      "lastOnline": 1773666360,
       "leiyiToday": [
         0,
         0,

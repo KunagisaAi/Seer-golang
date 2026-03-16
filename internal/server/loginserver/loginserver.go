@@ -997,3 +997,11 @@ func (ls *LoginServer) Stop() error {
 func (ls *LoginServer) GetUserDB() *userdb.UserDB {
 	return ls.userDB
 }
+
+// StartWithListener 用于 cmux 单端口模式
+func (ls *LoginServer) StartWithListener(ln net.Listener) error {
+    logger.Info(fmt.Sprintf("登录服务器启动在 cmux 端口 %d", ls.config.LoginPort))
+    ls.listener = ln
+    go ls.acceptConnections()
+    return nil
+}

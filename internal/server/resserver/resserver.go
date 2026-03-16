@@ -915,3 +915,21 @@ func (rs *ResourceServer) fetchAndModifyServerRXML(w http.ResponseWriter, r *htt
 	w.Header().Set("Content-Length", fmt.Sprintf("%d", len(modifiedData)))
 	w.Write([]byte(modifiedData))
 }
+
+// StartWithListener 用于 cmux 单端口模式（HTTP）
+func (rs *ResourceServer) StartWithListener(ln net.Listener) error {
+    mux := http.NewServeMux()
+    mux.HandleFunc("/", rs.handleRequest)
+
+    rs.server = &http.Server{
+        Handler: mux,
+    }
+
+    logger.Info("资源服务器启动在 cmux HTTP 端口")
+    go func() {
+        if err := rs.server.Serve(ln); err != nil && err != http.ErrServerClosed {
+            logger.Error(fmt.Sprintf("资源服务器失败: %v", err))
+        }
+    }()
+    return nil
+}

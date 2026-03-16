@@ -1078,3 +1078,38 @@ func (gs *GameServer) BuildMapOgreListFromSlots(slots []mapogres.Slot) []byte {
 func (gs *GameServer) RegisterCommandHandler(cmdId int32, handler CommandHandler) {
 	gs.commandHandlers[cmdId] = handler
 }
+
+// StartWithListener 用于 cmux 单端口模式
+func (gs *GameServer) StartWithListener(ln net.Listener) error {
+    logger.Info(fmt.Sprintf("游戏服务器启动在 cmux 端口 %d", gs.Port))
+    go gs.runOgreRefreshLoop()
+
+    go func() {
+        defer ln.Close()
+        for {
+            conn, err := ln.Accept()
+            if err != nil {
+                logger.Error(fmt.Sprintf("接受连接失败: %v", err))
+                continue
+            }
+            addr := conn.RemoteAddr()
+            logger.Info(fmt.Sprintf("新连接: %s", addr))
+
+            clientData := &ClientData{
+                Socket:   conn,
+                Buffer:   make([]byte, 0),
+                UserID:   0,
+                Session:  "",
+                SeqID:    0,
+                LoggedIn: false,
+            }
+
+            gs.mu.Lock()
+            gs.Clients = append(gs.Clients, clientData)
+            gs.mu.Unlock()
+
+            go gs.handleClient(clientData)
+        }
+    }()
+    return nil
+}
